@@ -14,7 +14,6 @@ Keeps track of depreciations, and creates corresponding journal entries.
     'sequence': 32,
     'depends': ['account_reports'],
     'data': [
-        'security/ir.model.access.csv',
         'views/account_tax_asset_views.xml',
     ],
     'license': 'OEEL-1',
