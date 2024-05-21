@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_fiscal_year_dates_form" model="ir.ui.view">
+        <field name="name">account.fiscal.year.dates.form</field>
+        <field name="model">account.fiscal.year</field>
+        <field name="inherit_id" ref="account_accountant.action_account_fiscal_year_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_to']" position="replace">
+            </xpath>
+            <xpath expr="//field[@name='date_from']" position="replace">
+                    <field name="date_from" string="1st Quarter" widget="daterange" class="oe_inline" options="{'end_date_field': 'q1_end'}"/>
+                    <field name="q1_end" widget="daterange" invisible="1"/>
+                    <field name="q2_start" string="2nd Quarter" class="oe_inline" widget="daterange" options="{'end_date_field': 'q2_end'}"/>
+                    <fied name="q2_end" widget="daterange" invisible="1"/>
+                    <field name="q3_start" widget="daterange" class="oe_inline" options="{'end_date_field': 'q3_end'}"/>
+                    <field name="q3_end" widget="daterange" invisible="1"/>
+                    <field name="q4_start" widget="daterange" class="oe_inline" options="{'end_date_field': 'date_to'}"/>
+                    <field name="date_to" widget="daterange" invisible="1"/>
+                </xpath>
+            
+        </field>
+    </record>
+</odoo>
