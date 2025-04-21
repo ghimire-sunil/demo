@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+custom_hr.access_res_district,access_res_district,custom_hr.model_res_district,base.group_user,1,1,1,0
+custom_hr.access_res_province,access_res_province,custom_hr.model_res_province,base.group_user,1,1,1,0
+custom_hr.access_res_municipality,access_res_municipality,custom_hr.model_res_municipality,base.group_user,1,1,1,0
+custom_hr.access_res_ward,access_res_ward,custom_hr.model_res_ward,base.group_user,1,1,1,0

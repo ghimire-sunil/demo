@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_employee_form_private_address_inherit" model="ir.ui.view">
+            <field name="name">employee.private.address.form.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='o_address_format']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='private_email']" position="before">
+            
+                    <div>
+                        <field name ="street" invisible = "1"/> 
+                        <field name="private_country_id" placeholder="Country" readonly="1"/>
+                        <field name="province_id" placeholder="Province..." domain="[('country_id','=',private_country_id)]"/>
+                        <field name="district_id" placeholder="District ..." domain="[('province_id','=',province_id)]"/>
+                        <field name="municipality_id" placeholder="Municipality" domain="[('district_id','=',district_id)]"/>
+                        <field name="ward_id" placeholder="Ward" domain="[('municipality_id','=',municipality_id)]"/>
+                    </div>
+                </xpath>
+       
+        </field>
+    </record>
+    </data>
+    
+</odoo>
