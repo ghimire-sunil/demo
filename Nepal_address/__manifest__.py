@@ -9,7 +9,7 @@ Long description of module's purpose
     """,
 
     'author': "Smarten Technologies",
-    'website': "https://www.smarten.com",
+    'website': "https://www.smarten.com.np",
 
 
     # for the full list
