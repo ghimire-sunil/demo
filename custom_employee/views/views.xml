@@ -1,0 +1,128 @@
+<odoo>
+    <data>
+        <record id="hr_employee_name_1" model="ir.ui.view">
+            <field name="name">hr.employee.name</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form" />
+            <field name="arch" type="xml">
+                <!-- ✅ Existing Field Insertions -->
+                <xpath expr="//field[@name='private_email']" position="after">
+                    <field name="emp_blood_group" />
+                </xpath>
+                <xpath expr="//field[@name='emergency_phone']" position="after">
+                    <field name="relationship" />
+                </xpath>
+                <xpath expr="//field[@name='birthday']" position="after">
+                    <field name="current_age" />
+                </xpath>
+                <xpath expr="//field[@name='passport_id']" position="after">
+                    <field name="national_card_id_no" />
+                </xpath>
+                <xpath expr="//field[@name='country_id']" position="after">
+                    <field name="religion" />
+                </xpath>
+                <xpath expr="//field[@name='children']" position="after">
+                    <field name="num_sons" />
+                </xpath>
+                <xpath expr="//field[@name='num_sons']" position="after">
+                    <field name="num_daughters" />
+                </xpath>
+               
+                    
+
+
+                <!-- ✅ Employment Details Tab -->
+                <xpath expr="//notebook" position="inside">
+                    <page name="hr_employment_details" string="Employment Details"
+                        groups="hr.group_hr_user">
+                        <field name="employment_details_ids">
+                            <list editable="bottom">
+                                <field name="sno" readonly="1" />
+                                <field name="organization" />
+                                <field name="designation" />
+                                <field name="from_date" />
+                                <field name="to_date" />
+                            </list>
+                        </field>
+                    </page>
+                </xpath>
+
+                <!-- ✅ Present Address Details Tab -->
+                <!-- <xpath expr="//notebook" position="inside"> -->
+                    <xpath expr="//page[@name='personal_information']/group/group[1]" position="after">
+                        <group string="Temporary Address">
+                         <!-- <field name="provience" /> -->
+                          <field name="province" placeholder="Province" domain="[('country_id','=',private_country_id)]"/>
+                         <field name="district" placeholder="District" domain="[('province_id','=',province)]" />
+                         <field name="municipality_id" placeholder="Municiplaity" domain="[('district_id','=',district)]" />
+                         <field name="ward_no" placeholder="Ward No" domain="[('municipality_id','=',municipality_id)]" />
+                         <field name="house_no" />
+                         <field name="city_name" />
+                        </group>
+                     </xpath>
+
+
+
+                <!-- ✅ Family Status Tab -->
+                <xpath expr="//notebook" position="inside">
+                    <page name="hr_employee_family_member" string="Family Details"
+                        groups="hr.group_hr_user">
+                        <field name="family_details_ids" nolabel="1" colspan="2">
+                            <list editable="bottom">
+                                <field name="sno" readonly="1" />
+                                <field name="name" />
+                                <field name="relationship" />
+                                <field name="occupation" />
+                                <field name="phone_number" />
+                            </list>
+                        </field>
+                    </page>
+                </xpath>
+
+                <!-- ✅ Documents Submission Tab -->
+                <xpath expr="//notebook" position="inside">
+                    <page name="hr_documents_details" string="Documents Details">
+                        <field name="documents_details_ids" nolable="1" colspan="2">
+                        <!-- <field name="documents_details_ids" context="{'default_employee_id': active_id}"> -->
+                            <list editable="bottom">
+                                <field name="document_type" />
+                                <field name="document" />
+                            </list>
+                            <!-- <form>
+                                <sheet>
+                                    <group>
+                                        <group>
+                                            <field name="document_type" />
+                                        </group>
+                                        <group>
+                                            <field name="document" />
+                                        </group>
+                                    </group>
+                                </sheet>
+                            </form> -->
+                            <!-- <list editable="bottom"> -->
+                            <!-- <group> -->
+                            <!-- <field name="academic_certificates" />
+                                <field name="character_certificates" />
+                                <field name="copy_of_appointment_letter_from_pervious_employeer" />
+                                <field name="copy_of_experience_letter_from_pervious_employeer" />
+                                <field name="copy_of_payslip_form_pervious_employeer" />
+                                <field name="copy_of_citizenship" /> -->
+                            <!-- </group>
+                                <group> -->
+                            <!-- <field name="copy_of_pan_card" />
+                                <field name="copy_of_driving_licence" />
+                                <field name="non_objectives_certificates" />
+                                <field name="self_declaration_form" />
+                                <field name="passport_size_photograph" />
+                                <field name="police_report" /> -->
+                            <!-- </group> -->
+                            <!-- </list> -->
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

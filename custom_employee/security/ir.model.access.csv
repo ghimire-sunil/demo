@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+custom_employee.access_res_district,access_res_district,custom_employee.model_res_district,base.group_user,1,1,1,0
+custom_employee.access_res_province,access_res_province,custom_employee.model_res_province,base.group_user,1,1,1,0
+custom_employee.access_res_municipality,access_res_municipality,custom_employee.model_res_municipality,base.group_user,1,1,1,0
+custom_employee.access_hr_employment_details,access_hr_employment_details,custom_employee.model_hr_employment_details,base.group_user,1,1,1,0
+custom_employee.access_hr_family_details,access_hr_family_details,custom_employee.model_hr_family_details,base.group_user,1,1,1,0
+custom_employee.access_hr_documents_details,access_hr_documents_details,custom_employee.model_hr_documents_details,base.group_user,1,1,1,0
+custom_employee.access_employee_batch_transfer_wizard,access_employee_batch_transfer_wizard,custom_employee.model_employee_batch_transfer_wizard,base.group_user,1,1,1,0

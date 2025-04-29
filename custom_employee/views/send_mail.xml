@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record id="email_template_employee_transfer" model="mail.template">
+            <field name="name">Employee Transfer Notification</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="email_from">${(object.company_id.email)}</field>
+            <field name="email_to">${(object.work_email)}</field>         
+
+            <field name="subject">Transfer Details</field>
+            <field name="body_html"><![CDATA[
+                <p>Dear ${object.employee_id},</p>
+                <p>You have been transferred to the following department:</p>
+                <ul>
+                <li><strong>Designation:</strong> ${object.designation}</li>
+                <li><strong>Department:</strong> ${object.department}</li>
+                <li><strong>New Location:</strong> ${object.transferred_site}</li>
+                </ul>
+
+                <p>Please report to your new location on the assigned date.</p>
+                <p>Best Regards,<br/>HR Team</p>
+            ]]></field>
+        </record>
+    </data>
+</odoo>
