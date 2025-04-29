@@ -64,5 +64,25 @@
                     </field>
         </record>
         
+        <!-- Add Company Address Section -->
+        <record id="view_partner_address_company" model="ir.ui.view">
+            <field name="name">res.partner.company.address.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='o_address_format']" position="replace">
+                    <div class="o_address_format">
+                        <field name="street"/>
+                        <field name="street2"/>
+                        <field name="private_country_id" placeholder="Country"/>
+                        <field name="company_province_id" placeholder="Province" domain="[('country_id','=',private_country_id)]"/>
+                        <field name="company_district_id" placeholder="District" domain="[('province_id','=',company_province_id)]"/>
+                        <field name="company_municipality_id" placeholder="Municipality" domain="[('district_id','=',company_district_id)]"/>
+                        <field name="company_ward_id" placeholder="Ward" domain="[('municipality_id','=',company_municipality_id)]"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+        
     </data>
 </odoo>
