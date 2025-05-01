@@ -14,6 +14,21 @@ class ContactAddress(models.Model):
     contact_municipality_id = fields.Many2one('res.municipality', string="Municipality")
     contact_ward_id = fields.Many2one('res.ward', string="Ward")
 
+class CompanyAddress(models.Model):
+    _inherit = 'res.company'
+
+    #contact Address
+    private_country_id = fields.Many2one(
+        'res.country',
+        string="Private Country",
+        default=lambda self: self.env.ref('base.np').id if self.env.ref('base.np', raise_if_not_found=False) else None
+    )
+    company_province_id = fields.Many2one('res.province', string="Province")
+    company_district_id = fields.Many2one('res.district', string="District")
+    company_municipality_id = fields.Many2one('res.municipality', string="Municipality")
+    company_ward_id = fields.Many2one('res.ward', string="Ward")
+
+    
 class EmployeeAddress(models.Model):
     _inherit = 'hr.employee'
 
